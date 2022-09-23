@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>call</title>
+</head>
+<body>
+
+  <label>Enter thy Username</label><br>
+  <input type="text" id="Username" placeholder="Thy Username"><br>
+  <button onclick="sendId()">submito fella</button>
+
+
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase.js"></script>
+
+	
+<script>
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyC5aq_bv4CrDjp__ndctr4uoqhKX1rUqv8",
+      authDomain: "todo-9d1da.firebaseapp.com",
+      databaseURL: "https://todo-9d1da-default-rtdb.firebaseio.com",
+      projectId: "todo-9d1da",
+      storageBucket: "todo-9d1da.appspot.com",
+      messagingSenderId: "679536935567",
+      appId: "1:679536935567:web:2e37b32b248b921b8126fa",
+      measurementId: "G-ZNT29LEMQF"
+    };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        </script>
+
+  <script type="text/javascript">
+    function sendId() {
+      let username = document.getElementById("Username").value;
+
+      location.href = "index.html#" + username;
+
+    }
+  </script>
+
+</body>
+</html>

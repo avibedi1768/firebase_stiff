@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>dash</title>
+    </head>
+    <body>
+        <h1 id="name"></h1>
+        <h1 id="mail"></h1>
+        <h1 id="password"></h1>
+          <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase.js"></script>
+
+            
+        <script>
+          
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            const firebaseConfig = {
+              apiKey: "AIzaSyC5aq_bv4CrDjp__ndctr4uoqhKX1rUqv8",
+              authDomain: "todo-9d1da.firebaseapp.com",
+              databaseURL: "https://todo-9d1da-default-rtdb.firebaseio.com",
+              projectId: "todo-9d1da",
+              storageBucket: "todo-9d1da.appspot.com",
+              messagingSenderId: "679536935567",
+              appId: "1:679536935567:web:2e37b32b248b921b8126fa",
+              measurementId: "G-ZNT29LEMQF"
+            };
+
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+        </script>
+    
+        <script type="text/javascript">
+            let url=location.href;
+            let username=url.split('#')[1];
+            console.log(username);
+            var db=firebase.database();
+            //use once to read;push to push
+            db.ref(username).once("value",(value) =>{
+                console.log(value.val());
+
+            document.getElementById("name").innerHTML = value.val().name ;   
+            document.getElementById("mail").innerHTML = value.val().mail ;   
+            document.getElementById("password").innerHTML = value.val().pass ;   
+            })
+
+            // for push
+            // var data = document.getElementById("lol").value;
+            // var name = document.getElementById("name").value;
+            // var mail = document.getElementById("mail").value;
+            // db.ref().push({
+            // name : name,
+            // email: mail,
+            // data : data
+            // });
+
+            
+            // with set
+            // var data = document.getElementById("lol").value;
+            // var name = document.getElementById("name").value;
+            // var mail = document.getElementById("mail").value;
+            // // console.log(data);
+            // db.ref(data).set({
+            //     Name: name,
+            //     email: mail
+            // });
+        </script>
+
+    </body>
+</html>
